@@ -3,13 +3,13 @@ use std::cmp::Ordering;
 use std::io;
 
 fn main() {
+    const KEY_TO_QUIT: &str = "quit";
     println!("Guess the number!");
 
     let secret_number = rand::thread_rng().gen_range(1..=100);
 
     loop {
-        let key_to_quit = String::from("quit");
-        println!("Please input your guess. (type '{key_to_quit}' to exit)");
+        println!("Please input your guess. (type '{KEY_TO_QUIT}' to exit)");
 
         let mut guess = String::new();
 
@@ -17,7 +17,7 @@ fn main() {
             .read_line(&mut guess)
             .expect("Failed to read line");
 
-        if guess.trim().cmp(&key_to_quit) == Ordering::Equal {
+        if guess.trim().cmp(KEY_TO_QUIT) == Ordering::Equal {
             println!("Thanks for playing; enjoy your day.");
             break;
         }
