@@ -1,3 +1,7 @@
+Main resources:
+
+- [»The book«](https://doc.rust-lang.org/stable/book/)
+
 - To use `rust-analyzer` in LazyVim, you have to install it using the Rust toolchain, i.e. `rustup component add rust-analyzer`, instead of using `Mason` (<https://www.reddit.com/r/neovim/comments/1cpruok/rust_not_working_in_lazyvim/>).
 - The installation of Rust also includes a local copy of the documentation, so that you can read it offline. Run `rustup doc` to open the local documentation in your browser.
 - In Rust, variables and references are immutable by default. To make them mutable, we use `mut`.
