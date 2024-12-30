@@ -1,0 +1,4 @@
+- Parsing a string `guess` to a `u32` number: `let guess: u32 = guess.trim().parse().expect("Not a valid number");`
+  - Note: Any other number you are comparing `guess` with, whose type is inferred by Rust, will now have the type `u32`
+  - Note: We are using _shadowing_ to convert the type of `guess`, without having to create a new variable
+- The user must press `enter` to satisfy `read_line` and input their guess, which adds a newline character to the string. (On Windows, pressing enter results in a carriage return and a newline, `\r\n`.) The `trim` method eliminates `\n` or `\r\n`.

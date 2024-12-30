@@ -4,6 +4,8 @@ Main resources:
 
 - To use `rust-analyzer` in LazyVim, you have to install it using the Rust toolchain, i.e. `rustup component add rust-analyzer`, instead of using `Mason` (<https://www.reddit.com/r/neovim/comments/1cpruok/rust_not_working_in_lazyvim/>).
 - The installation of Rust also includes a local copy of the documentation, so that you can read it offline. Run `rustup doc` to open the local documentation in your browser.
+- When adding a Rust dependency (aka _external crate_) to `Cargo.toml` under the `[dependencies]` section header, you get »instant feedback« about the version you are specifying.
+- Running the `cargo doc --open` command will build documentation provided by all your dependencies locally and open it in your browser.
 - In Rust, variables and references are immutable by default. To make them mutable, we use `mut`.
 
 ```rust
@@ -12,14 +14,3 @@ let mut bananas = 5 // mutable
 ```
 
 - An _associated function_ is a function that's implemented on a type; for example in `String::new()`, the `::` syntax indicates that `new` is an associated function of the `String` type.
-- When adding a Rust dependency (aka _external crate_) to `Cargo.toml` under the `[dependencies]` section header, you get »instant feedback« about the version you are specifying.
-- Running the `cargo doc --open` command will build documentation provided by all your dependencies locally and open it in your browser.
-- Parsing a string `guess` to a `u32` number: `let guess: u32 = guess.trim().parse().expect("Not a valid number");`
-  - Note: Any other number you are comparing `guess` with, whose type is inferred by Rust, will now have the type `u32`
-  - Note: We are using _shadowing_ to convert the type of `guess`, without having to create a new variable
-- The user must press `enter` to satisfy `read_line` and input their guess, which adds a newline character to the string. (On Windows, pressing enter results in a carriage return and a newline, `\r\n`.) The `trim` method eliminates `\n` or `\r\n`.
-- Shadowing is different from marking a variable as `mut` because we’ll get a compile-time error if we accidentally try to reassign to this variable without using the `let` keyword. By using `let`, we can perform a few transformations on a value but have the variable be immutable after those transformations have been completed.
-- The other difference between `mut` and shadowing is that because we’re effectively creating a new variable when we use the `let` keyword again, we can change the type of the value but reuse the same name.
-- Rust has four primary scalar types: integers, floating-point numbers, Booleans, and characters.
-- The tuple without any values has a special name, _unit_. This value and its corresponding type are both written `()` and represent an empty value or an empty return type. Expressions implicitly return the unit value if they don’t return any other value.
-- Unlike a tuple, every element of an array must have the same type. Unlike arrays in some other languages, arrays in Rust have a fixed length.
