@@ -17,4 +17,9 @@ let mut bananas = 5 // mutable
 - Parsing a string `guess` to a `u32` number: `let guess: u32 = guess.trim().parse().expect("Not a valid number");`
   - Note: Any other number you are comparing `guess` with, whose type is inferred by Rust, will now have the type `u32`
   - Note: We are using _shadowing_ to convert the type of `guess`, without having to create a new variable
-- The user must press `enter` to satisfy `read_line` and input their guess, which adds a newline character to the string. For example, if the user types 5 and presses enter, `guess` looks like this: `5\n`. The `\n` represents “newline.” (On Windows, pressing enter results in a carriage return and a newline, `\r\n`.) The `trim` method eliminates `\n` or `\r\n`, resulting in just `5`.
+- The user must press `enter` to satisfy `read_line` and input their guess, which adds a newline character to the string. (On Windows, pressing enter results in a carriage return and a newline, `\r\n`.) The `trim` method eliminates `\n` or `\r\n`.
+- Shadowing is different from marking a variable as `mut` because we’ll get a compile-time error if we accidentally try to reassign to this variable without using the `let` keyword. By using `let`, we can perform a few transformations on a value but have the variable be immutable after those transformations have been completed.
+- The other difference between `mut` and shadowing is that because we’re effectively creating a new variable when we use the `let` keyword again, we can change the type of the value but reuse the same name.
+- Rust has four primary scalar types: integers, floating-point numbers, Booleans, and characters.
+- The tuple without any values has a special name, _unit_. This value and its corresponding type are both written `()` and represent an empty value or an empty return type. Expressions implicitly return the unit value if they don’t return any other value.
+- Unlike a tuple, every element of an array must have the same type. Unlike arrays in some other languages, arrays in Rust have a fixed length.
