@@ -14,3 +14,4 @@ let mut bananas = 5 // mutable
 ```
 
 - An _associated function_ is a function that's implemented on a type; for example in `String::new()`, the `::` syntax indicates that `new` is an associated function of the `String` type.
+- Unlike languages such as Ruby and JavaScript, Rust will not automatically try to convert non-Boolean types to a Boolean.
